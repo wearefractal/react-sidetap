@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.menu {
+  background-color: #f0f0f0;
+  height: 100%;
+  -webkit-transform: translate3d(0px,0px,0px);
+}
+
+.main {
+  -webkit-transform: translate3d(0px,0px,0px);
+}
+
+.navbar {
+  min-height: 30px;
+}

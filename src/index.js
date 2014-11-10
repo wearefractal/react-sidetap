@@ -14,16 +14,16 @@ var types = {
 };
 
 var sidetap = ReactCompositeComponent.createClass({
-  
+
   displayName: 'SideTap',
   propTypes: types,
-  
+
   getDefaultProps: function(){
     return {
       slidePercent: '85'
     };
   },
-  
+
   getInitialState: function(){
     return {
       open: false
@@ -34,6 +34,7 @@ var sidetap = ReactCompositeComponent.createClass({
   },
 
   componentWillReceiveProps: function(props){
+    return props;
   },
 
   componentWillUnmount: function(){
@@ -50,33 +51,33 @@ var sidetap = ReactCompositeComponent.createClass({
       width: this.props.slidePercent + 'vw',
       height: '100%',
       transition: 'all 0.2s ease'
-    }
+    };
 
     var mainStyle = {
       position: 'absolute',
       top: '0px',
       marginLeft: this.state.open ? this.props.slidePercent + 'vw' : 0,
       transition: 'all 0.2s ease'
-    }
+    };
 
     console.log(mainStyle);
 
-    return DOM.div({}, 
-  
+    return DOM.div({},
+
       DOM.div({className: 'menu', style: menuStyle},
         this.props.Menu({
           open: this.state.open,
         })
-      )
-    ,
+      ),
+
       DOM.div({className: 'main', style: mainStyle},
         this.props.Main({
-          toggle: this.toggle, 
+          toggle: this.toggle,
         })
       )
 
     );
-  
+
   }
 });
 

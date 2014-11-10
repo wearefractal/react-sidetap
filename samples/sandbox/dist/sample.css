@@ -3,16 +3,69 @@ html, body {
   width: 100%;
 }
 
+/* sidetap menu style */
 .menu {
+  position: relative;
   background-color: #f0f0f0;
   height: 100%;
   -webkit-transform: translate3d(0px,0px,0px);
 }
 
-.main {
-  -webkit-transform: translate3d(0px,0px,0px);
-}
+/* navbar style */
 
 .navbar {
-  min-height: 30px;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: #efefef;
+  z-index: 5;
+  box-shadow: 0 0 5px solid #555;
+}
+.navbar .button {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  padding: 5px;
+  padding-top: 8px;
+}
+.navbar .button .bar {
+  width: 30px;
+  height: 5px;
+  background: #cdcdcd;
+  margin: 5px
+}
+.navbar .title {
+  position: absolute;
+  top: 0px;
+  left: 60px;
+  width: 100%;
+  height: 5px;
+  height: 50px;
+}
+.navbar .title .text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+/* demo style */
+
+.main {
+  width: 100%;
+  -webkit-transform: translate3d(0px,0px,0px);
+}
+.main .content {
+  width: 100%;
+  padding: 10px;
+}
+
+
+.menu .content {
+  position: relative;
+  padding: 20px
 }

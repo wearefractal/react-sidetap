@@ -42,14 +42,6 @@ var sampleBundler = watchify(browserify('./samples/sandbox/src/index.js', {
 }));
 //sampleBundler.transform(reactify);
 
-gulp.task('watch', function(){
-  bundler.on('update', function(){
-    gulp.start('js');
-  });
-  sampleBundler.on('update', function(){
-    gulp.start('samples');
-  });
-});
 
 gulp.task('js', function(){
   var browserifyStream = bundler.bundle()
@@ -81,7 +73,8 @@ gulp.task('samples', function(){
 
   var staticStream = gulp.src(['samples/sandbox/src/**/*', '!samples/sandbox/src/**/*.js'])
     .pipe(cached('static-samples'))
-    .pipe(gulp.dest('samples/sandbox/dist'));
+    .pipe(gulp.dest('samples/sandbox/dist'))
+    .pipe(lr());
 
   return merge(staticStream, browserifyStream);
 });
@@ -97,5 +90,17 @@ gulp.task('deploy', function(){
   return gulp.src('./samples/sandbox/dist/**/*')
     .pipe(deploy());
 });
+
+gulp.task('watch', function(){
+  gulp.watch(['samples/sandbox/src/**/*'], ['samples']);
+
+  bundler.on('update', function(){
+    gulp.start('js');
+  });
+  sampleBundler.on('update', function(){
+    gulp.start('samples');
+  });
+});
+
 
 gulp.task('default', ['js', 'samples', 'sample-server', 'watch']);

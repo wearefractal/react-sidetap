@@ -1,3 +1,4 @@
+/* globals window, document*/
 'use strict';
 
 var Sidetap = require('../../../src');
@@ -9,31 +10,39 @@ var DOM = React.DOM;
 
 var menu = React.createClass({
   render: function(){
-    return DOM.div({}, "menu");
+    return  DOM.div({className: 'content'}, 'MENU');
   }
 });
 
-// NAVBAR 
+// NAVBAR
 
 var navbar = React.createClass({
   render: function(){
     return DOM.div({className: 'navbar'},
-      DOM.button({onClick: this.props.toggle}, '='),
-      DOM.div({}, "NAV")
-
-    )
+      DOM.div({
+        onClick: this.props.toggle,
+        className: 'button'
+      },
+        DOM.div({className: 'bar'}),
+        DOM.div({className: 'bar'}),
+        DOM.div({className: 'bar'})
+      ),
+      DOM.div({className: 'title'},
+        DOM.div({className: 'text'}, 'NAVBAR')
+      )
+    );
   }
 });
 
-// MAIN CONTAINER 
+// MAIN CONTAINER
 
 var main = React.createClass({
   render: function(){
     return DOM.div({},
       navbar({toggle: this.props.toggle}),
-      DOM.div({}, "main content")
+      DOM.div({className: 'content'}, 'main content')
 
-    )
+    );
   }
 });
 
@@ -42,7 +51,7 @@ var main = React.createClass({
 var App = React.createClass({
   displayName: 'demo',
   render: function(){
-    return Sidetap({Menu: menu, Main: main})
+    return Sidetap({Menu: menu, Main: main});
   }
 });
 

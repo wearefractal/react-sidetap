@@ -55,7 +55,7 @@ var sidetap = ReactCompositeComponent.createClass({
     };
 
     var mainStyle = {
-      position: 'absolute',
+      position: 'fixed',
       top: '0px',
       marginLeft: this.state.open ? this.props.slidePercent + 'vw' : 0,
       transition: 'all 0.2s ease'

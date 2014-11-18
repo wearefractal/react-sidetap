@@ -8,7 +8,6 @@ var PropTypes = require('react/lib/ReactPropTypes');
 
 var types = {
   Menu: PropTypes.func.isRequired,
-  Nav: PropTypes.func.isRequired,
   Main: PropTypes.func.isRequired,
   slidePercent: PropTypes.number
 };
